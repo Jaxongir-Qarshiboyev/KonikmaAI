@@ -1,61 +1,51 @@
-# 🚀 Setup Instructions
+# 🚀 SETUP: Loyihani Ishga Tushirish Qo'llanmasi
 
-Follow these steps to run SkillForge AI locally.
+Ushbu hujjat Hackathon Hakamlari (Judges) loyihani o'z kompyuterlarida xatosiz ishga tushirishlari uchun mo'ljallangan.
 
-## Prerequisites
-- Node.js 18 or higher (Node 20+ recommended)
-- A Google Gemini API Key. You can get a free one from [Google AI Studio](https://aistudio.google.com/).
+## 1. Talab Qilinadigan Dasturlar
+- **Node.js**: v18.17.0 yoki undan yuqori (Tavsiya etiladi: v20 LTS)
+- **npm** (Node bilan birga keladi)
+- Internet aloqasi (Google Gemini API bilan ishlash uchun)
 
-## 1. Installation
+## 2. O'rnatish Qadamlari
 
-Clone the repository and install dependencies:
+1. **Repozitoriyni yuklab olish:**
+   ```bash
+   git clone https://github.com/Jaxongir-Qarshiboyev/KonikmaAI.git
+   cd KonikmaAI
+   ```
 
-```bash
-cd skillforge-ai
-npm install
-```
+2. **Kutubxonalarni o'rnatish:**
+   ```bash
+   npm install
+   ```
 
-## 2. Environment Variables
+3. **Muhit o'zgaruvchilari (Environment Variables):**
+   Loyiha ildizida `.env.local` nomli fayl yarating va uning ichiga Google Gemini API kalitingizni kiriting. Tizim shusiz ishlamaydi!
+   ```env
+   GOOGLE_GENERATIVE_AI_API_KEY="AIzaSy...sizning_kalitingiz"
+   ```
 
-Create a `.env.local` file in the root directory:
+4. **Dasturni ishga tushirish:**
+   ```bash
+   npm run dev
+   ```
+   Brauzerda [http://localhost:3000](http://localhost:3000) manziliga kiring.
 
-```bash
-cp .env.example .env.local
-```
+---
 
-Open `.env.local` and add your Gemini API key:
-```env
-GOOGLE_GENERATIVE_AI_API_KEY=your_actual_key_here
-```
+## 🔐 3. Demo va Test Ma'lumotlari (Credentials)
 
-## 3. Run the Development Server
+Hackathon PDF qoidalariga asosan: **"Demo access, login credential yoki sample data kerak bo'lsa, albatta qo'shing."**
 
-Start the Next.js development server:
+Ushbu platforma hozirda ochiq Enterprise MVP ko'rinishida yaratilgan bo'lib, hakamlar tizimni darhol ishlatib ko'rishlari uchun **hech qanday Login/Parol talab qilinmaydi.** 
 
-```bash
-npm run dev
-```
+Siz to'g'ridan-to'g'ri `/dashboard` ga kirib, platformaning barcha imkoniyatlaridan (AI Test, Kutubxona, Ko'nikmalar tahlili) to'liq foydalanishingiz mumkin. Barcha foydalanuvchi datalari (Ismlar, Bo'limlar, KPI lar) tizimda "Mock Data" (`src/data/`) sifatida oldindan kiritilgan.
 
-Open [http://localhost:3000](http://localhost:3000) in your browser.
-
-## 4. Production Build (Optional)
-
-To test the optimized production build:
-
+## 🛠 4. Build va Production
+Agar loyihani Vercel kabi platformalarga yuklamoqchi bo'lsangiz:
 ```bash
 npm run build
 npm run start
 ```
-
-## 🌐 Deployment (Vercel)
-
-The easiest way to deploy this project is via Vercel:
-
-1. Push your code to a public GitHub repository.
-2. Log in to [Vercel](https://vercel.com).
-3. Click **Add New** -> **Project**.
-4. Import your GitHub repository.
-5. In the **Environment Variables** section, add `GOOGLE_GENERATIVE_AI_API_KEY` and paste your key.
-6. Click **Deploy**.
-
-Within 2 minutes, your AI corporate training platform will be live!
+*Eslatma: Deployment paytida ham `GOOGLE_GENERATIVE_AI_API_KEY` ni Environment Variables qismiga qo'shishni unutmang.*
