@@ -238,7 +238,7 @@ export default function LearningPathsPage() {
                                 width: 44,
                                 height: 44,
                                 borderRadius: 10,
-                                background: "white",
+                                background: "var(--background)",
                                 border: "1px solid var(--border)",
                                 display: "flex",
                                 alignItems: "center",
@@ -261,7 +261,7 @@ export default function LearningPathsPage() {
                               
                               <div style={{ display: "flex", gap: 8, flexWrap: "wrap" }}>
                                 {module.skills.map(skill => (
-                                  <span key={skill} style={{ fontSize: 11, background: "white", border: "1px solid var(--border)", padding: "4px 10px", borderRadius: 6, fontWeight: 600, color: "var(--foreground)" }}>
+                                  <span key={skill} style={{ fontSize: 11, background: "var(--background)", border: "1px solid var(--border)", padding: "4px 10px", borderRadius: 6, fontWeight: 600, color: "var(--foreground)" }}>
                                     {skill}
                                   </span>
                                 ))}

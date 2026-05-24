@@ -303,7 +303,7 @@ export default function SkillsPage() {
                       <div style={{ width: `${((gap.requiredLevel - gap.currentLevel) / 10) * 100}%`, background: "var(--warning)" }} />
                     </div>
                     
-                    <div style={{ padding: 12, background: "white", borderRadius: 8, border: "1px solid var(--border)" }}>
+                    <div style={{ padding: 12, background: "var(--background)", borderRadius: 8, border: "1px solid var(--border)" }}>
                       <p style={{ fontSize: 13, color: "var(--muted-foreground)" }}>
                         <span style={{ color: "var(--primary-dark)", fontWeight: 700, marginRight: 6 }}>HR Tavsiyasi:</span> 
                         {gap.recommendation}

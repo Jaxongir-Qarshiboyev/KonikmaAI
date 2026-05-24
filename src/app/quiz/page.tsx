@@ -149,7 +149,7 @@ export default function QuizPage() {
                   key={t}
                   onClick={() => setTopic(t)}
                   className="chip chip-primary" 
-                  style={{ cursor: "pointer", border: "1px solid transparent", background: "white" }}
+                  style={{ cursor: "pointer", border: "1px solid transparent", background: "var(--background)" }}
                   onMouseEnter={(e) => e.currentTarget.style.borderColor = "var(--primary-light)"}
                   onMouseLeave={(e) => e.currentTarget.style.borderColor = "transparent"}
                 >
