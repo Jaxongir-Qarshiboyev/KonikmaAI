@@ -161,7 +161,7 @@ export default function AssistantPage() {
                         padding: "16px",
                         borderRadius: 12,
                         border: "1px solid var(--border)",
-                        background: "white",
+                        background: "var(--background)",
                         cursor: "pointer",
                         transition: "all 0.2s",
                         textAlign: "left",
@@ -295,7 +295,7 @@ export default function AssistantPage() {
                 fontSize: 15,
                 outline: "none",
                 transition: "all 0.2s",
-                background: "white",
+                background: "var(--background)",
                 color: "var(--foreground)",
                 boxShadow: "inset 0 2px 4px rgba(0,0,0,0.02)",
               }}
