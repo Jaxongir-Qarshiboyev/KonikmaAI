@@ -60,62 +60,21 @@ export default function AssistantPage() {
 
       if (!response.ok) throw new Error("Failed to get response");
 
-      // Read the streaming response from Vercel AI SDK
-      const reader = response.body?.getReader();
-      const decoder = new TextDecoder();
-      let fullText = "";
+      const data = await response.json();
 
-      const assistantMessageId = (Date.now() + 1).toString();
+      const assistantMessage: Message = {
+        id: (Date.now() + 1).toString(),
+        role: "assistant",
+        content: data.text || "Kechirasiz, javob olinmadi. Qayta urinib ko'ring.",
+        timestamp: new Date(),
+      };
 
-      // Add empty assistant message that we'll update as stream comes in
-      setMessages((prev) => [
-        ...prev,
-        { id: assistantMessageId, role: "assistant", content: "", timestamp: new Date() },
-      ]);
-
-      if (reader) {
-        while (true) {
-          const { done, value } = await reader.read();
-          if (done) break;
-
-          const chunk = decoder.decode(value, { stream: true });
-          // Vercel AI SDK data stream format: lines starting with "0:" contain text
-          const lines = chunk.split("\n");
-          for (const line of lines) {
-            if (line.startsWith("0:")) {
-              try {
-                const text = JSON.parse(line.slice(2));
-                fullText += text;
-              } catch {
-                // skip non-JSON lines
-              }
-            }
-          }
-
-          // Update the message content in real-time
-          setMessages((prev) =>
-            prev.map((msg) =>
-              msg.id === assistantMessageId ? { ...msg, content: fullText } : msg
-            )
-          );
-        }
-      }
-
-      // If no text was captured from stream, show fallback
-      if (!fullText.trim()) {
-        setMessages((prev) =>
-          prev.map((msg) =>
-            msg.id === assistantMessageId
-              ? { ...msg, content: "Kechirasiz, javob olinmadi. Qayta urinib ko'ring." }
-              : msg
-          )
-        );
-      }
+      setMessages((prev) => [...prev, assistantMessage]);
     } catch {
       const errorMessage: Message = {
         id: (Date.now() + 1).toString(),
         role: "assistant",
-        content: "⚠️ Hozir ulanishda muammo bor. Iltimos, Gemini API kalitingiz .env.local faylida to'g'ri o'rnatilganligini tekshiring!",
+        content: "⚠️ Hozir ulanishda muammo bor. Iltimos, API kalitingiz .env.local faylida to'g'ri o'rnatilganligini tekshiring!",
         timestamp: new Date(),
       };
       setMessages((prev) => [...prev, errorMessage]);

@@ -42,12 +42,12 @@ export async function POST(req: Request) {
     const { messages, type, topic, level, role, skills } = body;
 
     if (type === "onboarding") {
-      const result = streamText({
+      const result = await generateText({
         model: google("gemini-2.5-flash"),
         system: onboardingSystemPrompt,
         messages,
       });
-      return result.toDataStreamResponse();
+      return Response.json({ text: result.text });
     } 
     
     if (type === "quiz") {
