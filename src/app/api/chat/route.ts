@@ -1,5 +1,5 @@
 import { google } from "@ai-sdk/google";
-import { generateText, streamText } from "ai";
+import { generateText } from "ai";
 import { onboardingSystemPrompt, quizGeneratorPrompt, skillAnalyzerPrompt, learningPathPrompt } from "@/prompts";
 
 export const maxDuration = 30;
@@ -8,7 +8,7 @@ function extractJSON(text: string) {
   try {
     // First try direct parse
     return JSON.parse(text);
-  } catch (e) {
+  } catch {
     // Try to find JSON object or array within the text
     const jsonRegex = /{(?:[^{}]|{(?:[^{}]|{(?:[^{}]|{[^{}]*})*})*})*}/;
     const match = text.match(jsonRegex);

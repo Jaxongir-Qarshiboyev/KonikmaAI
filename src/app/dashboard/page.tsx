@@ -130,7 +130,8 @@ export default function DashboardPage() {
                   ))}
                 </Pie>
                 <Tooltip 
-                  formatter={(value: number) => [`${value}%`, 'Tugallangan']}
+                  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+                  formatter={(value: any) => [`${value}%`, 'Tugallangan']}
                   contentStyle={{ borderRadius: '12px', border: '1px solid var(--border)', boxShadow: 'var(--shadow-md)' }}
                 />
               </PieChart>
