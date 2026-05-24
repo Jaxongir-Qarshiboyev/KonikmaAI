@@ -142,12 +142,11 @@ export default function LibraryPage() {
               <div style={{ position: "relative", width: "100%", aspectRatio: "16/9", overflow: "hidden", borderTopLeftRadius: "14px", borderTopRightRadius: "14px", background: "var(--muted)" }}>
                 {/* eslint-disable-next-line @next/next/no-img-element */}
                 <img 
-                  src={`https://img.youtube.com/vi/${video.youtubeId}/hqdefault.jpg`} 
+                  src={video.image} 
                   alt={video.title}
                   style={{ width: "100%", height: "100%", objectFit: "cover", transition: "transform 0.3s" }}
                   className="group-hover:scale-105"
                   onError={(e) => {
-                    // Fallback to maxresdefault if hqdefault is missing, or a generic placeholder
                     e.currentTarget.src = "https://images.unsplash.com/photo-1611162617474-5b21e879e113?w=800&q=80";
                   }}
                 />
