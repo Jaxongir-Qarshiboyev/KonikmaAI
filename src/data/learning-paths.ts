@@ -1,0 +1,17 @@
+export const availableRoles = [
+  "Universal kassa xodimi (Teller)",
+  "Shaxsiy bank maslahatchisi (Personal Banker)",
+  "Kredit tahlilchisi (Credit Analyst)",
+  "Komplayens-ofitser (Compliance Officer)",
+  "AML tahlilchisi (AML Analyst)",
+  "Filial boshqaruvchisi (Branch Manager)",
+  "Korporativ munosabatlar menejeri (Relationship Manager)",
+  "Risk tahlilchisi (Risk Analyst)",
+  "G'aznachi (Treasury Specialist)",
+  "Raqamli mahsulot menejeri (Digital Product Manager)",
+  "Ichki auditor (Internal Auditor)",
+  "Moliyaviy rejalashtiruvchi (Financial Planner)",
+  "Kartalar bo'limi mutaxassisi (Card Operations)",
+  "Axborot xavfsizligi mutaxassisi (InfoSec Specialist)",
+  "HR va Ta'lim koordinatori",
+];
