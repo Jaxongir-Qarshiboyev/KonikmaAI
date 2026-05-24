@@ -21,9 +21,9 @@ Ushbu hujjat Hackathon Hakamlari (Judges) loyihani o'z kompyuterlarida xatosiz i
    ```
 
 3. **Muhit o'zgaruvchilari (Environment Variables):**
-   Loyiha ildizida `.env.local` nomli fayl yarating va uning ichiga Google Gemini API kalitingizni kiriting. Tizim shusiz ishlamaydi!
+   Loyiha ildizida `.env.local` nomli fayl yarating va uning ichiga OpenRouter API kalitingizni kiriting. Tizim shusiz ishlamaydi!
    ```env
-   GOOGLE_GENERATIVE_AI_API_KEY="AIzaSy...sizning_kalitingiz"
+   OPENROUTER_API_KEY="sk-or-v1..."
    ```
 
 4. **Dasturni ishga tushirish:**

@@ -3,8 +3,8 @@
 Ushbu hujjat "Build with AI EdTech Hackathon" qoidalari (10-bo'lim: Responsible AI va 6-bo'lim: Disclosure) asosida ishlab chiqildi. Bu yerda loyihada ishlatilgan barcha sun'iy intellekt modellari, kutubxonalar va ularning ishlash mantig'i ochiqlanadi.
 
 ## 1. Asosiy AI Model va Kutubxonalar
-- **Google Gemini 2.5 Flash API:** Platformaning butun "miyasi" (Onboarding Chat, Quiz Generation, Skill Analysis, Learning Path Generation) shu model asosida ishlaydi. 
-- **Vercel AI SDK (`ai`, `@ai-sdk/google`):** Gemini API bilan xavfsiz va barqaror ulanish, ma'lumotlarni oqim (stream) ko'rinishida chiqarish uchun ishlatildi.
+- **OpenRouter (Free Models Router):** Platformaning barcha sun'iy intellekt xususiyatlari (Onboarding Chat, Quiz Generation, Skill Analysis, Learning Path) bepul OpenRouter modellari (masalan: `google/gemma`, `nvidia/nemotron`) orqali ishlaydi. Eng tejamkor va sifatli modelni router avtomatik tanlaydi.
+- **Vercel AI SDK (`ai`, `@ai-sdk/openai`):** OpenRouter API bilan xavfsiz va barqaror ulanish, ma'lumotlarni oqim (stream) ko'rinishida chiqarish uchun ishlatildi. BaseURL maxsus `https://openrouter.ai/api/v1` qilib sozlangan.
 - **RAG (Retrieval-Augmented Generation):** AI'ga Bank qonunchiligi (AML, KYC) o'rgatilishi uchun `src/data/company-knowledge.ts` dagi qat'iy ma'lumotlar *System Prompt* orqali yuboriladi.
 
 ## 2. Tashqi API, Dataset va Kutubxonalar

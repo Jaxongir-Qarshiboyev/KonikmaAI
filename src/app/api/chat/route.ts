@@ -1,8 +1,16 @@
-import { google } from "@ai-sdk/google";
+import { createOpenAI } from "@ai-sdk/openai";
 import { generateText, streamText } from "ai";
 import { onboardingSystemPrompt, quizGeneratorPrompt, skillAnalyzerPrompt, learningPathPrompt } from "@/prompts";
 
 export const maxDuration = 30;
+
+const openrouter = createOpenAI({
+  baseURL: 'https://openrouter.ai/api/v1',
+  apiKey: process.env.OPENROUTER_API_KEY,
+});
+
+// We use the "openrouter/free" model as requested by the user
+const MODEL = "openrouter/free";
 
 function extractJSON(text: string) {
   try {
@@ -43,7 +51,7 @@ export async function POST(req: Request) {
 
     if (type === "onboarding") {
       const result = streamText({
-        model: google("gemini-2.5-flash"),
+        model: openrouter(MODEL),
         system: onboardingSystemPrompt,
         messages,
       });
@@ -52,7 +60,7 @@ export async function POST(req: Request) {
     
     if (type === "quiz") {
       const result = await generateText({
-        model: google("gemini-2.5-flash"),
+        model: openrouter(MODEL),
         system: quizGeneratorPrompt,
         prompt: `Generate a quiz about: ${topic}. Difficulty level: ${level}`,
       });
@@ -61,7 +69,7 @@ export async function POST(req: Request) {
     
     if (type === "skill-analysis") {
       const result = await generateText({
-        model: google("gemini-2.5-flash"),
+        model: openrouter(MODEL),
         system: skillAnalyzerPrompt,
         prompt: `Role: ${role}\nCurrent skills: ${skills.join(", ")}`,
       });
@@ -70,7 +78,7 @@ export async function POST(req: Request) {
     
     if (type === "learning-path") {
       const result = await generateText({
-        model: google("gemini-2.5-flash"),
+        model: openrouter(MODEL),
         system: learningPathPrompt,
         prompt: `Generate a learning path for the role of: ${role}`,
       });
