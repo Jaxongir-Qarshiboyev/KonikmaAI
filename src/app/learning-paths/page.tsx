@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { BookOpen, Sparkles, Loader2, PlayCircle, BookMarked, Brain, FileText, CheckCircle2, Milestone, ShieldCheck } from "lucide-react";
+import { BookOpen, Sparkles, Loader2, PlayCircle, BookMarked, Brain, FileText, CheckCircle2, Milestone, ShieldCheck, Target } from "lucide-react";
 import { availableRoles } from "@/data/learning-paths";
 
 interface GeneratedPath {
