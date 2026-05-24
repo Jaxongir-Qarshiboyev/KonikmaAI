@@ -9,6 +9,18 @@ export interface LibraryVideo {
   image: string;
 }
 
+const getPlaceholder = (title: string, category: string) => {
+  // Use a different color based on category for variety
+  let color = "3B82F6"; // Primary Blue
+  if (category.includes("AML")) color = "10B981"; // Emerald
+  if (category.includes("Kredit")) color = "F59E0B"; // Amber
+  if (category.includes("Risk")) color = "EF4444"; // Red
+  if (category.includes("Raqamli")) color = "8B5CF6"; // Purple
+
+  const encodedTitle = encodeURIComponent(title.split(' ').slice(0, 4).join(' ') + (title.split(' ').length > 4 ? '...' : ''));
+  return `https://placehold.co/800x450/0B1120/${color}?text=${encodedTitle}&font=montserrat`;
+};
+
 export const libraryVideos: LibraryVideo[] = [
   { 
     id: "V-001", 
@@ -18,7 +30,7 @@ export const libraryVideos: LibraryVideo[] = [
     duration: "14:22", 
     youtubeId: "WEDIj9JBTC8", 
     description: "Anti-Money Laundering va Know Your Customer jarayonlarining asosiy tushunchalari va amaliy qo'llanilishi.",
-    image: "https://images.unsplash.com/photo-1554224155-8d04cb21cd6c?w=800&q=80"
+    image: getPlaceholder("AML va KYC nima?", "AML va Compliance")
   },
   { 
     id: "V-002", 
@@ -28,7 +40,7 @@ export const libraryVideos: LibraryVideo[] = [
     duration: "18:45", 
     youtubeId: "WEDIj9JBTC8", 
     description: "Kredit tahlilining 5C modeli va moliyaviy hisobotlarni baholash usullari.",
-    image: "https://images.unsplash.com/photo-1590283603385-18ff3827072a?w=800&q=80"
+    image: getPlaceholder("Credit Analysis Fundamentals", "Kredit tahlili")
   },
   { 
     id: "V-003", 
@@ -38,7 +50,7 @@ export const libraryVideos: LibraryVideo[] = [
     duration: "12:30", 
     youtubeId: "WEDIj9JBTC8", 
     description: "Tranzaksiyalar monitoringi va shubhali operatsiyalarni aniqlash texnikalari.",
-    image: "https://images.unsplash.com/photo-1601597111158-2fceff292cdc?w=800&q=80"
+    image: getPlaceholder("Transaction Monitoring Explained", "AML va Compliance")
   },
   { 
     id: "V-004", 
@@ -48,7 +60,7 @@ export const libraryVideos: LibraryVideo[] = [
     duration: "22:15", 
     youtubeId: "WEDIj9JBTC8", 
     description: "Basel regulyativ talablari va ularning bank kapitaliga ta'siri.",
-    image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&q=80"
+    image: getPlaceholder("Basel III va IV asoslari", "Risk Management")
   },
   { 
     id: "V-005", 
@@ -58,7 +70,7 @@ export const libraryVideos: LibraryVideo[] = [
     duration: "16:40", 
     youtubeId: "WEDIj9JBTC8", 
     description: "Mijozni tekshirish (Due Diligence) jarayonining bosqichlari va eng yaxshi amaliyotlari.",
-    image: "https://images.unsplash.com/photo-1450101499163-c8848c66ca85?w=800&q=80"
+    image: getPlaceholder("Customer Due Diligence (CDD)", "AML va Compliance")
   },
   { 
     id: "V-006", 
@@ -68,7 +80,7 @@ export const libraryVideos: LibraryVideo[] = [
     duration: "25:10", 
     youtubeId: "WEDIj9JBTC8", 
     description: "Moliyaviy hisobotlarni o'qish va tahlil qilish usullari — balans, foyda va zarar hisoboti.",
-    image: "https://img.youtube.com/vi/WEDIj9JBTC8/hqdefault.jpg"
+    image: getPlaceholder("Financial Statement Analysis", "Moliyaviy tahlil")
   },
   { 
     id: "V-007", 
@@ -78,7 +90,7 @@ export const libraryVideos: LibraryVideo[] = [
     duration: "11:55", 
     youtubeId: "WEDIj9JBTC8", 
     description: "Bank sektorida xatarlarni boshqarish turlari va zamonaviy yondashuvlar.",
-    image: "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=800&q=80"
+    image: getPlaceholder("What is Risk Management?", "Risk Management")
   },
   { 
     id: "V-008", 
@@ -88,7 +100,7 @@ export const libraryVideos: LibraryVideo[] = [
     duration: "9:20", 
     youtubeId: "WEDIj9JBTC8", 
     description: "SWIFT tizimi orqali xalqaro pul o'tkazmalari qanday ishlaydi.",
-    image: "https://images.unsplash.com/photo-1621252179027-94459d278660?w=800&q=80"
+    image: getPlaceholder("How SWIFT Payments Work", "Bank operatsiyalari")
   },
   { 
     id: "V-009", 
@@ -98,7 +110,7 @@ export const libraryVideos: LibraryVideo[] = [
     duration: "15:30", 
     youtubeId: "WEDIj9JBTC8", 
     description: "An'anaviy banklarning raqamli transformatsiya strategiyalari va FinTech trendi.",
-    image: "https://images.unsplash.com/photo-1563013544-824ae1b704d3?w=800&q=80"
+    image: getPlaceholder("Digital Banking Transformation", "Raqamli bank")
   },
   { 
     id: "V-010", 
@@ -108,7 +120,7 @@ export const libraryVideos: LibraryVideo[] = [
     duration: "19:45", 
     youtubeId: "WEDIj9JBTC8", 
     description: "Bank uchun stress-testing: ssenariylar tuzish va kapital yetarliligini baholash.",
-    image: "https://images.unsplash.com/photo-1611162617474-5b21e879e113?w=800&q=80"
+    image: getPlaceholder("Stress Testing for Banks", "Risk Management")
   },
   { 
     id: "V-011", 
@@ -118,7 +130,7 @@ export const libraryVideos: LibraryVideo[] = [
     duration: "13:15", 
     youtubeId: "WEDIj9JBTC8", 
     description: "Sanksiyalar skriningi jarayoni va Refinitiv World-Check kabi vositalar.",
-    image: "https://images.unsplash.com/photo-1589829085413-56de8ae18c73?w=800&q=80"
+    image: getPlaceholder("Sanctions Screening Process", "AML va Compliance")
   },
   { 
     id: "V-012", 
@@ -128,6 +140,6 @@ export const libraryVideos: LibraryVideo[] = [
     duration: "17:00", 
     youtubeId: "WEDIj9JBTC8", 
     description: "Kredit skoring modellari: FICO, logistik regressiya va mashinali o'qitish yondashuvlari.",
-    image: "https://images.unsplash.com/photo-1579621970588-a3f5ce599fac?w=800&q=80"
+    image: getPlaceholder("Credit Scoring Models Explained", "Kredit tahlili")
   },
 ];
